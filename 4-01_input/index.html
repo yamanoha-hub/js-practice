@@ -4,38 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>テンプレート</title>
-  <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+  <link href="../images/favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
-  <link href="../../_common/css/style.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
 <header>
-<div class="container">
-<h1>タイトル</h1>
-<h2>サブタイトル</h2>
-</div><!-- /.container -->
+  <div class="container">
+    <h1>フォームの入力内容を取得する</h1>
+    <h2>まずはイベントをテスト</h2>
+  </div><!-- /.container -->
 </header>
 <main>
-<div class="container">
-<section>
-  <form action="#" id="form">
-    <input type="text" name="word">
-    <input type="submit" value="検索">
-  </form>
-  <p id="output"></p>
-</section>
-</div><!-- /.container -->
+  <div class="container">
+    <section>
+      <form action="#" id="form">
+        <input type="text" name="word">
+        <input type="submit" value="検索">
+      </form>
+      <p id="output"></p>
+    </section>
+  </div><!-- /.container -->
 </main>
 <footer>
-<div class="container">
-<p>JavaScript Samples</p>
-</div><!-- /.container -->
+  <div class="container">
+    <p>JavaScript Samples</p>
+  </div><!-- /.container -->
 </footer>
 <script>
   'use strict';
+
+  // id=formをクリックしたイベントを作成
   document.getElementById('form').onsubmit = function(event) {
+
+    // HTMLの基本動作をキャンセル
     event.preventDefault();
+
+    // searchにid=formのvalueを保存
     const search = document.getElementById('form').word.value;
+    // outputにテキストを出力
     document.getElementById('output').textContent = `「${search}」の検索中...`;
   };
 </script>

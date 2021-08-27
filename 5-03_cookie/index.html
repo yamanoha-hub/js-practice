@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>テンプレート</title>
-  <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+  <link href="../images/favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
-  <link href="../../_common/css/style.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="panel.css">
 </head>
 <body>
 <header>
   <div class="container">
-    <h1>タイトル</h1>
-    <h2>サブタイトル</h2>
+    <h1>プライバシーポリシー承認パネルを作る</h1>
+    <h2>クッキーの内容に応じてパネルを削除する</h2>
   </div><!-- /.container -->
 </header>
 <main>
   <div class="container">
     <section>
-
+      <p><button id="testbtn">テスト用 cookie削除</button></p>
     </section>
   </div><!-- /.container -->
 </main>
@@ -34,7 +34,30 @@
 </div>
 <script>
   'use strict';
-  
+
+  // cookie-agreeという名前の値を読み取ってagreeに代入
+  const agree = Cookies.get('cookie-agree');
+  const panel = document.getElementById('privacy-panel');
+  if(agree === 'yes') {
+    // console.log('クッキーを確認しました');
+
+    // panelを削除
+    document.body.removeChild(panel);
+  } else {
+    // console.log('クッキーを確認できません');
+
+    // agreebtnをクリックしたら
+    document.getElementById('agreebtn').onclick = function() {
+      // Cookies.set('クッキー名', '値', {expires: 有効期限(日)});
+      Cookies.set('cookie-agree', 'yes', {expires: 7});
+      document.body.removeChild(panel);
+    };
+  }
+
+  // クッキー削除(テスト用)
+  document.getElementById('testbtn').onclick = function() {
+    Cookies.remove('cookie-agree');
+  }
 </script>
 </body>
 </html>

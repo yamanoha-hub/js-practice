@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>テンプレート</title>
-  <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+  <link href="../images/favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
-  <link href="../../_common/css/style.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
 <header>
   <div class="container">
-    <h1>タイトル</h1>
-    <h2>サブタイトル</h2>
+    <h1>カウントダウンタイマー</h1>
+    <h2>残り時間を計算するファンクションを作る</h2>
   </div><!-- /.container -->
 </header>
 <main>
@@ -32,13 +32,19 @@
   'use strict';
 
   function countdown(due) {
+    // 初期化
     const now = new Date();
-
+    // restにdueをnow(同日の23時59分59秒)のミリ秒で引く
     const rest = due.getTime() - now.getTime();
+    // 1000で割ると全体の秒、それを60で割ったあまりが秒
     const sec = Math.floor(rest / 1000) % 60;
+    // 1000で割った後60で割ると全体の分、それを60で割ったあまりが分
     const min = Math.floor(rest / 1000 / 60) % 60;
+    // 1000で割った後60で割った後60で割ると全体の時、それを60で割ったあまりが時
     const hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+    // 1000で割った後60で割った後また、60で割った後に24で割ると日
     const days = Math.floor(rest / 1000 / 60 / 60 / 24);
+    // countに日、時、分、秒を代入
     const count = [days, hours, min, sec];
 
     return count;
@@ -49,15 +55,14 @@
   // goal.setMinutes(59);
   // goal.setSeconds(59);
 
-
-  function recalc () {
+  function recalc() {
     const counter = countdown(goal);
     // const time = `${counter[1]}時間${counter[2]}分${counter[3]}秒`;
     // document.getElementById('timer').textContent = time;
     document.getElementById('day').textContent = counter[0];
     document.getElementById('hour').textContent = counter[1];
-    document.getElementById('min').textContent = counter[2];
-    document.getElementById('sec').textContent = counter[3];
+    document.getElementById('min').textContent = String(counter[2]).padStart(2, '0');
+    document.getElementById('sec').textContent = String(counter[3]).padStart(2, '0');
     refresh();
   }
   function refresh() {

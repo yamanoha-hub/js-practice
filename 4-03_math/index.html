@@ -4,40 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>テンプレート</title>
-  <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+  <link href="../images/favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
-  <link href="../../_common/css/style.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
 <header>
-<div class="container">
-<h1>タイトル</h1>
-<h2>サブタイトル</h2>
-</div><!-- /.container -->
+  <div class="container">
+    <h1>小数第◯位で切り捨てる</h1>
+    <h2>四則演算以外の計算をする</h2>
+  </div><!-- /.container -->
 </header>
 <main>
-<div class="container">
-<section>
-  <p>円周率は<span id="pi"></span>です。</p>
-  <p>ふつうに切り捨てると<span id="floor"></span>です。</p>
-  <p>小数点第2位で切り捨てると<span id="output"></span>です。</p>
-</section>
-</div><!-- /.container -->
+  <div class="container">
+    <section>
+      <p>円周率は<span id="pi"></span>です。</p>
+      <p>ふつうに切り捨てると<span id="floor"></span>です。</p>
+      <p>小数点第2位で切り捨てると<span id="output"></span>です。</p>
+    </section>
+  </div><!-- /.container -->
 </main>
 <footer>
-<div class="container">
-<p>JavaScript Samples</p>
-</div><!-- /.container -->
+  <div class="container">
+    <p>JavaScript Samples</p>
+  </div><!-- /.container -->
 </footer>
 <script>
   'use strict';
   
-
-  
+  // id=piのテキストにπを挿入
   document.getElementById('pi').textContent = Math.PI;
+
+  // id=floorにπ(小数点切り捨て)を挿入
   document.getElementById('floor').textContent = Math.floor(Math.PI);
+
+
   function point(num, digit) {
+    // 10のdigit乗をmoverに代入
     const mover = 10 ** digit;
+    // num(Math.PI=3.14)のmover倍(2)=314
+    // 314 / mover=3.14
     return Math.floor(num * mover) / mover;
   }
 

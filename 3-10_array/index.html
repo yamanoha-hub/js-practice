@@ -4,40 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>テンプレート</title>
-  <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+  <link href="../images/favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
-  <link href="../../_common/css/style.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
 <header>
-<div class="container">
-<h1>タイトル</h1>
-<h2>サブタイトル</h2>
-</div><!-- /.container -->
+  <div class="container">
+    <h1>項目をリスト表示する</h1>
+    <h2>配列を作成する</h2>
+  </div><!-- /.container -->
 </header>
 <main>
-<div class="container">
-<section>
-  <h1>やることリスト</h1>
-  <ul id="list">
-
-  </ul>
-</section>
-</div><!-- /.container -->
+  <div class="container">
+    <section>
+      <h1>やることリスト</h1>
+      <ul id="list">
+      </ul>
+    </section>
+  </div><!-- /.container -->
 </main>
 <footer>
-<div class="container">
-<p>JavaScript Samples</p>
-</div><!-- /.container -->
+  <div class="container">
+    <p>JavaScript Samples</p>
+  </div><!-- /.container -->
 </footer>
 <script>
   'use strict';
 
+  // todoにデータを代入
   let todo = ['デザインカンプ作成', 'データ整理', '勉強会申し込み', '牛乳買う'];
+  // todoに追加
   todo.push('歯医者に行く');
+
+  // todoにitemに代入
   for(let item of todo) {
+    // liに<li>を代入
     const li = `<li>${item}</li>`;
     console.log(li);
+
+    // idのlistに定義したliを出力
+    // beforeendは取得した子要素に挿入
     document.getElementById('list').insertAdjacentHTML('beforeend', li);
   }
 </script>
