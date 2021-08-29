@@ -11,8 +11,8 @@
 <body>
 <header>
   <div class="container">
-    <h1>タイトル</h1>
-    <h2>サブタイトル</h2>
+    <h1>あなたはいまどこ？</h1>
+    <h2>現在地の緯度・経度を取得する</h2>
   </div><!-- /.container -->
 </header>
 <main>
@@ -21,7 +21,6 @@
       <p>あなたはいま</p>
       <p id="loc" class="position"></p>
       <p>の場所にいます。ちなみに精度は半径<span id="accuracy" class="position"></span>mです。</p>
-
     </section>
   </div><!-- /.container -->
 </main>
@@ -33,6 +32,7 @@
 <script src="../scripts/jquery-3.4.1.min.js"></script>
 <script>
   'use strict';
+
 
   function success(pos) {
     // console.log(pos);
@@ -48,6 +48,8 @@
     alert(`位置情報の取得に失敗しました。エラーコード:` + error.code);
   }
 
+  // successは位置情報を取得できた時に呼び出す。
+  // failは失敗した時に呼び出すファンクションを設定。
   navigator.geolocation.getCurrentPosition(success, fail);
 </script>
 </body>

@@ -71,8 +71,11 @@
 <script>
   'use strict';
   
+
   $(document).ready(function() {
+    // id=open_navをクリックしたら
     $('#open_nav').on('click', function() {
+      // idのwrapper,navにshowをつける(wrapperでページ全体、navでメニューをアニメーション)
       $('#wrapper, #nav').toggleClass('show');
     });
   });

@@ -46,8 +46,8 @@
 <body>
 <header>
   <div class="container">
-    <h1>タイトル</h1>
-    <h2>サブタイトル</h2>
+    <h1>空き席状況をチェック</h1>
+    <h2>JSONファイルの読み込み</h2>
   </div><!-- /.container -->
 </header>
 <main>
@@ -80,20 +80,28 @@
   'use strict';
   
   $(document).ready(function() {
+    // ajax記述
     $.ajax({url: 'data.json', dataType: 'json'})
+    // ダウンロードできた時
+    // パラメータdataに保存される
     .done(function(data) {
-      // console.log(data);
       data.forEach(function(item, index) {
+        // data.jsonのcrowdedがyesなら
         if(item.crowded === 'yes') {
+          // id名を取得
           const idName = '#' + item.id;
+          // crowdedクラスをcheckにつける
           $(idName).find('.check').addClass('crowded');
         }
       });
     })
+    // ダウンロードできなかった時
     .fail(function() {
+      // アラートを表示
       window.alert('読み込みエラー');
     });
 
+    // クリックされたら空き席状況を表示
     $('.check').on('click', function() {
       if($(this).hasClass('crowded')) {
         $(this).text('残りわずか').addClass('red');

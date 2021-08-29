@@ -32,8 +32,8 @@
 <body>
 <header>
   <div class="container">
-    <h1>タイトル</h1>
-    <h2>サブタイトル</h2>
+    <h1>開閉するナビゲーションメニュー</h1>
+    <h2>jQueryの基本を押さえよう</h2>
   </div><!-- /.container -->
 </header>
 <main>
@@ -72,10 +72,13 @@
   'use stript';
 
   $(document).ready(function() {
+    // クラスsubmenuの中のh3をクリックしたら
     $('.submenu h3').on('click', function() {
+      // hiddenクラスを消したり付けたりする(ulに)
       $(this).next().toggleClass('hidden');
     });
   });
+
 </script>
 </body>
 </html>
