@@ -7,18 +7,26 @@
   <link href="../images/favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/special.css">
 </head>
 <body>
 <header>
   <div class="container">
-    <h1>タイトル</h1>
-    <h2>サブタイトル</h2>
+    <h1>Web APIを使ってみよう</h1>
+    <h2>ローディングサインを追加する</h2>
   </div><!-- /.container -->
 </header>
 <main>
   <div class="container">
     <section>
+      <h3 id="place"></h3>
+      <div class="now">
+        <div id="weather">
 
+        </div>
+      </div>
+      <table id="forecast">
+      </table>
     </section>
   </div><!-- /.container -->
 </main>
@@ -26,10 +34,9 @@
   <div class="container">
     <p>JavaScript Samples</p>
   </div><!-- /.container -->
+
 </footer>
-<script>
-  'use strict'
-  
-</script>
+<script src="script.js"></script>
+<script src="../scripts/jquery-3.4.1.min.js"></script>
 </body>
 </html>
